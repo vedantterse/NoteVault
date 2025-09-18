@@ -1,19 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Fix the lockfile warning by specifying the root directory
-  outputFileTracingRoot: process.cwd(),
+  // Remove outputFileTracingRoot for Vercel - let it handle automatically
   
-  // Optimize for production builds
+  // Optimize for production builds and Vercel deployment
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-dialog'],
   },
   
-  // Ensure proper TypeScript checking
+  // Ensure proper TypeScript checking in production
   typescript: {
-    // Only ignore TypeScript errors in development, not production
     ignoreBuildErrors: false,
   },
+  
+  // Optimize for serverless environments (Vercel)
+  output: 'standalone',
   
   // Security headers for production
   async headers() {

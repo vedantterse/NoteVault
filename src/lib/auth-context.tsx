@@ -46,10 +46,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [refreshAuth]);
 
   const login = async (email: string, password: string) => {
-    console.log('Auth Context: Starting login process for:', email);
     try {
       const response = await apiClient.login({ email, password });
-      console.log('Auth Context: API response received:', response);
       
       if (response.success && response.data) {
         const { token, user: userData, tenant: tenantData } = response.data;
@@ -62,13 +60,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           localStorage.setItem('user_data', JSON.stringify(userData));
           localStorage.setItem('tenant_data', JSON.stringify(tenantData));
         }
-        
-        console.log('Auth Context: Login successful, user set');
       } else {
         throw new Error(response.error || 'Login failed');
       }
     } catch (error) {
-      console.error('Auth Context: Login error:', error);
       throw error;
     }
   };
