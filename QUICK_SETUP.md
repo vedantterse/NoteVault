@@ -1,6 +1,6 @@
 # 🚀 Quick Setup Guide
 
-This guide will help you set up the Multi-Tenant SaaS Notes Application in **under 10 minutes**. Follow these steps exactly to avoid any issues.
+This guide will help you set up the Multi-Tenant SaaS Notes Application. Follow these steps exactly to avoid any issues.
 
 ## 📋 Prerequisites
 
@@ -16,7 +16,7 @@ Before starting, make sure you have:
 
 ```bash
 # Clone the repository
-git clone [your-repo-url]
+git clone https://github.com/vedantterse/NoteVault
 cd notesapplication
 
 # Install all dependencies
